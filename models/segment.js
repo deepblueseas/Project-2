@@ -53,7 +53,7 @@ Segment.init(
             }
         },
 
-        seg_content: {
+        segment_content: {
             type: DataTypes.STRING,
             allowNull: false
         }
