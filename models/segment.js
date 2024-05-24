@@ -14,7 +14,8 @@ Segment.init(
         
         position: {
             type: DataTypes.INTEGER,
-            allowNull: false
+            allowNull: false,
+            autoIncrement: true
         },
         
         created_by: {
