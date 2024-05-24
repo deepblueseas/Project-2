@@ -17,6 +17,11 @@ User.init(
             allowNull: false
         },
 
+        user_bio: {
+            type: DataTypes.STRING,
+            allowNull: false
+        },
+
         email: {
             type: DataTypes.STRING,
             allowNull: false,
