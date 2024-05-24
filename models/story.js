@@ -17,7 +17,7 @@ Story.init(
             allowNull: false
         },
 
-        seg_id: {
+        segment_id: {
             type: DataTypes.INTEGER,
             allowNull: false,
             references: {
@@ -25,7 +25,7 @@ Story.init(
                 key: 'id',
                 unique: false
             }
-        }
+        },
     }
 );
 
