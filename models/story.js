@@ -16,16 +16,6 @@ Story.init(
             type: DataTypes.STRING,
             allowNull: false
         },
-
-        segment_id: {
-            type: DataTypes.INTEGER,
-            allowNull: false,
-            references: {
-                model: 'segment',
-                key: 'id',
-                unique: false
-            }
-        },
     },
     {
         sequelize,
