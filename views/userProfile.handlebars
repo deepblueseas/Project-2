@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>User Profile</title>
+    <link href="https://cdn.jsdelivr.net/npm/quill@2.0.2/dist/quill.snow.css" rel="stylesheet">
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" rel="stylesheet">
+</head>
+<body>
+    <div class="container mt-5">
+        <div class="d-flex justify-content-center mb-4">
+            <div class="card" style="width: 18rem;">
+                {{!-- <img src="{{user.image_url}}" class="card-img-top" alt="User Image"> --}}
+                <div class="card-body">
+                    <h5 class="card-title">{{user.username}}</h5>
+                    <p class="card-text">{{user.user_bio}}</p>
+                </div>
+                <div id="editor">
+                    <p>Hello!</p>
+                    <p>feel free to add your <strong>bio</strong> here!</p>
+                    <p><br></p>
+                </div>
+                <div class="d-flex justify-content-center">
+                    <button id="save-button">Save Text</button>
+                </div>
+            </div>
+        </div>
+
+      
+
+        <div class="d-flex justify-content-center">
+            <div class="card pt-4" style="width: 18rem;">
+                <div class="card-body">
+                    <h5 class="card-title">{{user.username}}'s Stories</h5>
+                    <h6 class="card-subtitle mb-2 text-body-secondary">Card subtitle</h6>
+                    <p class="card-text">Check out the stories I've partaken in:</p>
+                    <ul class="list-group list-group-flush">
+                      {{!-- turn these into buttons --}}
+                        <li class="list-group-item">An item</li>
+                        <li class="list-group-item">A second item</li>
+                        <li class="list-group-item">A third item</li>
+                    </ul>
+                </div>
+                <div class="card-body">
+                    <a href="#" class="card-link">Card link</a>
+                    <a href="#" class="card-link">Another link</a>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+</body>
+</html>
