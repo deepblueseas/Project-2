@@ -1,9 +1,11 @@
 const { Model, DataTypes } = require('sequelize');
 const sequelize = require('../config/connection');
 
-class Story extends Model {}
+class StorySegment extends Model {}
 
-Story.init(
+// should we get rig off the connections to segment/story in the other models and join them through this model (like we did in the e-commerce challenge with ProductTags table)
+
+StorySegment.init(
     {
         id: {
             type: DataTypes.INTEGER,
@@ -12,9 +14,14 @@ Story.init(
             autoIncrement: true
         },
 
-        story_title: {
-            type: DataTypes.STRING,
-            allowNull: false
+        story_id: {
+            type: DataTypes.INTEGER,
+            allowNull: false,
+            references: {
+                model: 'story',
+                key: 'id',
+                unique: false
+            }
         },
 
         segment_id: {
@@ -32,8 +39,8 @@ Story.init(
         timestamps: false,
         freezeTableName: true,
         underscored: true,
-        modelName: 'story'
+        modelName: 'storySegment'
     }
 );
 
-module.exports = Story;
+module.exports = StorySegment;

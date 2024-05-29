@@ -14,11 +14,12 @@ Segment.init(
         
         position: {
             type: DataTypes.INTEGER,
-            allowNull: false
+            allowNull: false,
+            // autoIncrement: true do we even need this?
         },
         
         created_by: {
-            type: DataTypes.STRING,
+            type: DataTypes.INTEGER,
             references: {
                 model: 'user',
                 key: 'id',
@@ -53,8 +54,8 @@ Segment.init(
             }
         },
 
-        seg_content: {
-            type: DataTypes.STRING,
+        segment_content: {
+            type: DataTypes.TEXT('long'),
             allowNull: false
         }
 
