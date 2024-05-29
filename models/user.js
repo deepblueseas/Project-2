@@ -3,6 +3,8 @@ const sequelize = require('../config/connection');
 
 class User extends Model {}
 
+// why isa the only record/column that shows up, for postgress/username and non of our seeded data/ appropriate structure of the table
+
 User.init(
     {
         id: {
@@ -18,7 +20,7 @@ User.init(
         },
 
         user_bio: {
-            type: DataTypes.STRING,
+            type: DataTypes.TEXT('long'),
             allowNull: false
         },
 
@@ -32,8 +34,19 @@ User.init(
         },
 
         password: {
-            type: DataTypes.STRING
+            type: DataTypes.STRING,
+            allowNull: false,
+            validate: {
+                len: [6]
+            }
         }
+    },
+    {
+        sequelize,
+        timestamps: false,
+        freezeTableName: true,
+        underscored: true,
+        modelName: 'user'
     }
 );
 

@@ -2,6 +2,7 @@ const Genre = require('./genre');
 const Prompt = require('./prompt');
 const Segment = require('./segment');
 const Story = require('./story');
+const StorySegment = require('./storySegment');
 const User = require('./user');
 
 // User Associations
@@ -20,11 +21,19 @@ Segment.belongsTo(User, {
 // Story Associations
 Story.hasMany(Segment, {
     onDelete: 'CASCADE',
-    foreignKey: 'story_id'
+    foreignKey: 'story_id',
+    thorugh: {
+        model: StorySegment,
+        unique: false
+    }
 });
 
 Segment.belongsTo(Story, {
-    foreignKey: 'segment_id'
+    foreignKey: 'segment_id',
+    through: {
+        model: StorySegment,
+        unique: false
+    }
 });
 // End Story Associations
 

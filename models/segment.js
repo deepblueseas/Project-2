@@ -15,7 +15,7 @@ Segment.init(
         position: {
             type: DataTypes.INTEGER,
             allowNull: false,
-            autoIncrement: true
+            // autoIncrement: true do we even need this?
         },
         
         created_by: {
@@ -55,7 +55,7 @@ Segment.init(
         },
 
         segment_content: {
-            type: DataTypes.STRING,
+            type: DataTypes.TEXT('long'),
             allowNull: false
         }
 
