@@ -39,7 +39,7 @@
                 {{/if}}
                 <button type="button" class="btn btn-primary">Sign-up</button>
             </div>
-             <!-- <div class="dropdown text-end">
+            <!-- <div class="dropdown text-end">
                 <a href="#" class="d-block link-body-emphasis text-decoration-none dropdown-toggle"
                     data-bs-toggle="dropdown" aria-expanded="false">
                     <img src="https://github.com/mdo.png" alt="mdo" width="32" height="32" class="rounded-circle">
@@ -55,11 +55,100 @@
                 </ul>
             </div>  -->
         </header>
-      
+
     </div>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
-        integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
-        crossorigin="anonymous"></script>
+
+
+
+
+    <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Quill Editor in Bootstrap Cards</title>
+    <link href="https://cdn.jsdelivr.net/npm/quill@2.0.2/dist/quill.snow.css" rel="stylesheet">
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" rel="stylesheet">
+</head>
+<body>
+    <div class="container mt-5">
+        <div class="d-flex justify-content-center mb-4">
+            <div class="card" style="width: 18rem;">
+                <!-- <img src="{{user.image_url}}" class="card-img-top" alt="User Image"> -->
+                <div class="card-body">
+                    <h5 class="card-title">{{user.username}}</h5>
+                    <p class="card-text">{{user.user_bio}}</p>
+                </div>
+                <div id="editor">
+                    <p>Hello!</p>
+                    <p>feel free to add your <strong>bio</strong> here!</p>
+                    <p><br></p>
+                </div>
+                <div class="d-flex justify-content-center">
+                    <button id="save-button">Save Text</button>
+                </div>
+            </div>
+        </div>
+
+      
+
+        <div class="d-flex justify-content-center">
+            <div class="card pt-4" style="width: 18rem;">
+                <div class="card-body">
+                    <h5 class="card-title">{{user.username}}'s stories</h5>
+                    <h6 class="card-subtitle mb-2 text-body-secondary">Card subtitle</h6>
+                    <p class="card-text">Check out the stories I've partaken in:</p>
+                    <ul class="list-group list-group-flush">
+                        <li class="list-group-item">An item</li>
+                        <li class="list-group-item">A second item</li>
+                        <li class="list-group-item">A third item</li>
+                    </ul>
+                </div>
+                <div class="card-body">
+                    <a href="#" class="card-link">Card link</a>
+                    <a href="#" class="card-link">Another link</a>
+                </div>
+            </div>
+        </div>
+    </div>
+    
 </body>
+</html>
+
+
+    <script>
+    document.addEventListener('DOMContentLoaded', (event) => {
+        const quill = new Quill('#editor', {
+            theme: 'snow'
+        });
+    
+        // Load saved content from localStorage
+        const savedContent = localStorage.getItem('quill-content');
+        if (savedContent) {
+            quill.root.innerHTML = savedContent;
+        }
+    
+        document.getElementById('save-button').addEventListener('click', function() {
+            const editorContent = quill.root.innerHTML;
+            localStorage.setItem('quill-content', editorContent);
+            console.log('Content saved:', editorContent);
+        });
+    });
+    </script>
+    
+    <script src="https://cdn.jsdelivr.net/npm/quill@2.0.2/dist/quill.js"></script>
+    <script>
+        const quill = new Quill('#editor', {
+            theme: 'snow'
+        });
+
+        document.getElementById('save-button').addEventListener('click', function() {
+            const editorContent = quill.root.innerHTML;
+            console.log(editorContent);
+            // Add logic to save the content, e.g., send it to a server
+        });
+    </script>
+</body>
+</html>
 
 </html>
