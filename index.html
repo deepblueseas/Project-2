@@ -62,93 +62,144 @@
 
 
     <!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Quill Editor in Bootstrap Cards</title>
-    <link href="https://cdn.jsdelivr.net/npm/quill@2.0.2/dist/quill.snow.css" rel="stylesheet">
-    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" rel="stylesheet">
-</head>
-<body>
-    <div class="container mt-5">
-        <div class="d-flex justify-content-center mb-4">
-            <div class="card" style="width: 18rem;">
-                <!-- <img src="{{user.image_url}}" class="card-img-top" alt="User Image"> -->
-                <div class="card-body">
-                    <h5 class="card-title">{{user.username}}</h5>
-                    <p class="card-text">{{user.user_bio}}</p>
+    <html lang="en">
+
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Quill Editor in Bootstrap Cards</title>
+        <link href="https://cdn.jsdelivr.net/npm/quill@2.0.2/dist/quill.snow.css" rel="stylesheet">
+        <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" rel="stylesheet">
+    </head>
+
+    <body>
+        <div class="container mt-5">
+            <div class="d-flex justify-content-center mb-4">
+                <div class="card" style="width: 18rem;">
+                    <!-- <img src="{{user.image_url}}" class="card-img-top" alt="User Image"> -->
+                    <div class="card-body">
+                        <h5 class="card-title">{{user.username}}</h5>
+                        <p class="card-text">{{user.user_bio}}</p>
+                    </div>
+                    <div id="editor">
+                        <p>Hello!</p>
+                        <p>feel free to add your <strong>bio</strong> here!</p>
+                        <p><br></p>
+                    </div>
+                    <div class="d-flex justify-content-center">
+                        <button id="save-button">Save Text</button>
+                    </div>
                 </div>
-                <div id="editor">
-                    <p>Hello!</p>
-                    <p>feel free to add your <strong>bio</strong> here!</p>
-                    <p><br></p>
-                </div>
-                <div class="d-flex justify-content-center">
-                    <button id="save-button">Save Text</button>
+            </div>
+
+
+
+            <div class="d-flex justify-content-center">
+                <div class="card pt-4" style="width: 18rem;">
+                    <div class="card-body">
+                        <h5 class="card-title">{{user.username}}'s stories</h5>
+                        <h6 class="card-subtitle mb-2 text-body-secondary">Card subtitle</h6>
+                        <p class="card-text">Check out the stories I've partaken in:</p>
+                        <ul class="list-group list-group-flush">
+                            <li class="list-group-item">An item</li>
+                            <li class="list-group-item">A second item</li>
+                            <li class="list-group-item">A third item</li>
+                        </ul>
+                    </div>
+                    <div class="card-body">
+                        <a href="#" class="card-link">Card link</a>
+                        <a href="#" class="card-link">Another link</a>
+                    </div>
                 </div>
             </div>
         </div>
 
-      
+    </body>
 
-        <div class="d-flex justify-content-center">
-            <div class="card pt-4" style="width: 18rem;">
-                <div class="card-body">
-                    <h5 class="card-title">{{user.username}}'s stories</h5>
-                    <h6 class="card-subtitle mb-2 text-body-secondary">Card subtitle</h6>
-                    <p class="card-text">Check out the stories I've partaken in:</p>
-                    <ul class="list-group list-group-flush">
-                        <li class="list-group-item">An item</li>
-                        <li class="list-group-item">A second item</li>
-                        <li class="list-group-item">A third item</li>
-                    </ul>
-                </div>
-                <div class="card-body">
-                    <a href="#" class="card-link">Card link</a>
-                    <a href="#" class="card-link">Another link</a>
-                </div>
-            </div>
-        </div>
-    </div>
-    
-</body>
-</html>
+    </html>
 
 
     <script>
-    document.addEventListener('DOMContentLoaded', (event) => {
-        const quill = new Quill('#editor', {
-            theme: 'snow'
+        document.addEventListener('DOMContentLoaded', (event) => {
+            const quill = new Quill('#editor', {
+                theme: 'snow'
+            });
+
+            // Load saved content from localStorage
+            const savedContent = localStorage.getItem('quill-content');
+            if (savedContent) {
+                quill.root.innerHTML = savedContent;
+            }
+
+            document.getElementById('save-button').addEventListener('click', function () {
+                const editorContent = quill.root.innerHTML;
+                localStorage.setItem('quill-content', editorContent);
+                console.log('Content saved:', editorContent);
+            });
         });
-    
-        // Load saved content from localStorage
-        const savedContent = localStorage.getItem('quill-content');
-        if (savedContent) {
-            quill.root.innerHTML = savedContent;
-        }
-    
-        document.getElementById('save-button').addEventListener('click', function() {
-            const editorContent = quill.root.innerHTML;
-            localStorage.setItem('quill-content', editorContent);
-            console.log('Content saved:', editorContent);
-        });
-    });
     </script>
-    
+
     <script src="https://cdn.jsdelivr.net/npm/quill@2.0.2/dist/quill.js"></script>
     <script>
         const quill = new Quill('#editor', {
             theme: 'snow'
         });
 
-        document.getElementById('save-button').addEventListener('click', function() {
+        document.getElementById('save-button').addEventListener('click', function () {
             const editorContent = quill.root.innerHTML;
             console.log(editorContent);
             // Add logic to save the content, e.g., send it to a server
         });
     </script>
+
+    <div class="story-container">
+        <div class="card-header col-md-12 text-center">
+            <h2>
+                &#128214 Recent Stories
+            </h2>
+        </div>
+        <div class="py-5">
+            <div class="container text-center">
+                <div class="row">
+                    <div class="col-md-4">
+
+                        <div class="card h-100">
+                            <div class="card-body">
+
+                                {{story}}
+
+                            </div>
+                        </div>
+
+                    </div>
+                    <div class="col-md-4">
+
+                        <div class="card h-100">
+                            <div class="card-body">
+
+                                {{story}}
+
+                            </div>
+                        </div>
+
+                    </div>
+                    <div class="col-md-4">
+
+                        <div class="card h-100">
+                            <div class="card-body">
+
+                                {{story}}
+
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
 </body>
+
 </html>
 
 </html>
