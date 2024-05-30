@@ -48,12 +48,12 @@ Segment.hasOne(Genre, {
     foreignKey: 'genre_id'
 });
 
-Prompt.belongsToMany(Segment, {
+Prompt.hasMany(Segment, {
     onDelete: 'CASCADE',
     foreignKey: 'prompt_id'
 });
 
-Genre.belongsToMany(Segment, {
+Genre.hasMany(Segment, {
     onDelete: 'CASCADE',
     foreignKey: 'genre_id'
 });
