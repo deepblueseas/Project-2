@@ -1,8 +1,11 @@
 const { Model, DataTypes } = require('sequelize');
 const sequelize = require('../config/connection');
+const bcrypt = require('bcrypt');
 
 class User extends Model {
     checkPassword(loginPw) {
+        bcrypt.hash(loginPw, 10);
+        console.log(bcrypt.hashSync(loginPw, 10));
         return bcrypt.compareSync(loginPw, this.password);
       }
 }

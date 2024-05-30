@@ -5,31 +5,31 @@ const userData = [
         username: "user1",
         user_bio: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
         email: "user1@email.com",
-        password: "password1"
+        password: "$2b$10$/HE22vh.BgggieWK2ue4Uul41afhaKJHiuE7SdvwZGPMp80NPaesW"
     },
     {
         username: "user2",
         user_bio: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
         email: "user2@email.com",
-        password: "password2"
+        password: "$2b$10$/HE22vh.BgggieWK2ue4Uul41afhaKJHiuE7SdvwZGPMp80NPaesW"
     },
     {
         username: "user3",
         user_bio: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
         email: "user3@email.com",
-        password: "password3"
+        password: "$2b$10$/HE22vh.BgggieWK2ue4Uul41afhaKJHiuE7SdvwZGPMp80NPaesW"
     },
     {
         username: "user4",
         user_bio: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
         email: "user4@email.com",
-        password: "password4"
+        password: "$2b$10$/HE22vh.BgggieWK2ue4Uul41afhaKJHiuE7SdvwZGPMp80NPaesW"
     },
     {
         username: "user5",
         user_bio: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
         email: "user5@email.com",
-        password: "password5"
+        password: "$2b$10$/HE22vh.BgggieWK2ue4Uul41afhaKJHiuE7SdvwZGPMp80NPaesW"
     },
     
 ]
