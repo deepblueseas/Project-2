@@ -23,3 +23,30 @@ document.addEventListener('DOMContentLoaded', function () {
         window.location.href = '/adventureModeOngoing'; 
     });
 });
+
+
+
+//here is the js for the adventureModeNew.handlebars
+// specifically to save their Quill input to our storySegment db
+
+const submitAdventure = document.getElementById('submit-adventure');
+const adventureContent = quill.root.innerHTML;
+fetch('/api/storyRoutes', {
+    method: 'POST',
+    headers: {
+        'Content-Type': 'application/json'
+    },
+    body: JSON.stringify({content: adventureContent})
+})
+ .then(response => {
+    if (response.ok) {
+      console.log('Content saved successfully');
+    } else {
+      console.error('Failed to save content');
+    }
+  })
+  .catch(error => {
+    console.error('Error:', error);
+  });
+
+
