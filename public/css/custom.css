@@ -44,6 +44,7 @@
   font-style: normal;
 }
 
+<<<<<<< Updated upstream
 /* css for the newadventure prompt */
 
 #prompt-container {
@@ -54,4 +55,17 @@
   font-weight: bold !important;
   font-style: italic;
   font-size: larger;
+=======
+
+.login-form label,
+.login-form input,
+.login-form button {
+  display: block;
+  width: 100%;
+  margin-bottom: 10px;
+}
+
+.login-form button {
+  padding: 10px;
+>>>>>>> Stashed changes
 }
