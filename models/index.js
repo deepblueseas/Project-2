@@ -21,19 +21,11 @@ Segment.belongsTo(User, {
 // Story Associations
 Story.hasMany(Segment, {
     onDelete: 'CASCADE',
-    foreignKey: 'story_id',
-    thorugh: {
-        model: StorySegment,
-        unique: false
-    }
+    foreignKey: 'story_id'
 });
 
 Segment.belongsTo(Story, {
-    foreignKey: 'segment_id',
-    through: {
-        model: StorySegment,
-        unique: false
-    }
+    foreignKey: 'story_id'
 });
 // End Story Associations
 
@@ -58,3 +50,5 @@ Genre.hasMany(Segment, {
     foreignKey: 'genre_id'
 });
 // End Segment Associations
+
+module.exports = { Genre, Prompt, Segment, Story, User, StorySegment}
