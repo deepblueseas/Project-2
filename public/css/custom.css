@@ -37,8 +37,21 @@
   font-style: normal;
 } */
 
+/* this needs to be changed to an id */
 #courgette-regular {
   font-family: "Courgette", cursive;
   font-weight: 400;
   font-style: normal;
+}
+
+/* css for the newadventure prompt */
+
+#prompt-container {
+  margin: auto;
+}
+
+#prompt-title {
+  font-weight: bold !important;
+  font-style: italic;
+  font-size: larger;
 }

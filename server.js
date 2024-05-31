@@ -2,6 +2,11 @@ const path = require('path');
 const express = require('express');
 const session = require('express-session');
 const exphbs = require('express-handlebars');
+<<<<<<< Updated upstream
+=======
+const Handlebars = require('handlebars');
+const routes = require('./controllers');
+>>>>>>> Stashed changes
 const helpers = require('./utils/helpers');
 const routes = require('./controllers');
 
@@ -29,7 +34,27 @@ const sess = {
 
 app.use(session(sess));
 
+<<<<<<< Updated upstream
 const hbs = exphbs.create({ helpers });
+=======
+  const hbs = exphbs.create({ helpers });
+
+  // Register Handlebars helpers
+Handlebars.registerHelper('randomPrompt', async () => {
+  return await getRandomPrompt();
+});
+
+Handlebars.registerHelper('randomGenre', async () => {
+  return await getRandomGenre();
+});
+  
+  app.engine('handlebars', hbs.engine);
+  app.set('view engine', 'handlebars');
+  
+  app.use(express.json());
+  app.use(express.urlencoded({ extended: true }));
+  app.use(express.static(path.join(__dirname, 'public')));
+>>>>>>> Stashed changes
 
 app.engine('handlebars', hbs.engine);
 app.set('view engine', 'handlebars');
