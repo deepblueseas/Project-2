@@ -3,10 +3,14 @@
     <a href="/story/{{id}}">
       <div class="card-body">
         <h5 class="card-title">{{story_title}}</h5>
-        <h6 class="card-subtitle mb-2 text-body-secondary">Card subtitle</h6>
-        <p class="card-text">{{segments}}.</p>
+        {{#each segments}}
+          {{#if @first}}
+        <h6 class="card-subtitle mb-2 text-body-secondary">{{created_by}}</h6>
+        <p class="card-text">{{segment_content}}</p>
         <a href="#" class="card-link">Card link</a>
         <a href="#" class="card-link">Another link</a>
+          {{/if}}
+        {{/each}}
       </div>
   </div>
 </div>
