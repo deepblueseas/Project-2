@@ -2,13 +2,9 @@ const path = require('path');
 const express = require('express');
 const session = require('express-session');
 const exphbs = require('express-handlebars');
-<<<<<<< Updated upstream
-=======
 const Handlebars = require('handlebars');
 const routes = require('./controllers');
->>>>>>> Stashed changes
 const helpers = require('./utils/helpers');
-const routes = require('./controllers');
 
 const SequelizeStore = require('connect-session-sequelize')(session.Store);
 const sequelize = require('./config/connection');
@@ -34,10 +30,12 @@ const sess = {
 
 app.use(session(sess));
 
-<<<<<<< Updated upstream
-const hbs = exphbs.create({ helpers });
-=======
-  const hbs = exphbs.create({ helpers });
+  const hbs = exphbs.create({ 
+    helpers: {
+      json: function(value) {
+        return JSON.stringify(value, null, 2);
+      }
+    } });
 
   // Register Handlebars helpers
 Handlebars.registerHelper('randomPrompt', async () => {
@@ -54,7 +52,6 @@ Handlebars.registerHelper('randomGenre', async () => {
   app.use(express.json());
   app.use(express.urlencoded({ extended: true }));
   app.use(express.static(path.join(__dirname, 'public')));
->>>>>>> Stashed changes
 
 app.engine('handlebars', hbs.engine);
 app.set('view engine', 'handlebars');

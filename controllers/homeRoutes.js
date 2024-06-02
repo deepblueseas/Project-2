@@ -13,12 +13,25 @@ router.get('/homepage', withAuth, async (req, res) => {
           ],
       });
 
+      const segmentData = await Segment.findAll({
+        include: [
+          {
+            model: User
+          },
+        ]
+      });
+
       const stories = storyData.map((story) =>
-      story.get({ plain: true})
-  );
-console.log(stories[0].segments)
+      story.get({ plain: true}));
+
+      const storySegments = segmentData.map((segment) =>
+        segment.get({ plain: true}))
+
+console.log(storySegments)
+
   res.render('homepage', {
       stories,
+      storySegments,
       loggedIn: req.session.loggedIn,
   });
   } catch (err) {
