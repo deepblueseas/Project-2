@@ -30,14 +30,14 @@ const sess = {
 
 app.use(session(sess));
 
-  const hbs = exphbs.create({ 
-    helpers: {
-      json: function(value) {
-        return JSON.stringify(value, null, 2);
-      }
-    } });
+const hbs = exphbs.create({
+  helpers: {
+    json: function (value) {
+      return JSON.stringify(value, null, 2);
+    }
+  }
+});
 
-  // Register Handlebars helpers
 Handlebars.registerHelper('randomPrompt', async () => {
   return await getRandomPrompt();
 });
@@ -45,16 +45,13 @@ Handlebars.registerHelper('randomPrompt', async () => {
 Handlebars.registerHelper('randomGenre', async () => {
   return await getRandomGenre();
 });
-  
-  app.engine('handlebars', hbs.engine);
-  app.set('view engine', 'handlebars');
-  
-  app.use(express.json());
-  app.use(express.urlencoded({ extended: true }));
-  app.use(express.static(path.join(__dirname, 'public')));
 
 app.engine('handlebars', hbs.engine);
 app.set('view engine', 'handlebars');
+
+app.use(express.json());
+app.use(express.urlencoded({ extended: true }));
+app.use(express.static(path.join(__dirname, 'public')));
 
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
@@ -66,13 +63,9 @@ app.get('/public/css/custom.css', (req, res) => {
   res.sendFile(filePath);
 });
 
-
 app.use(routes);
-
-
-
-
 
 sequelize.sync({ force: false }).then(() => {
   app.listen(PORT, () => console.log('Now listening'));
 });
+

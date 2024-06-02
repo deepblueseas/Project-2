@@ -21,11 +21,6 @@
         <header
             class="d-flex flex-wrap align-items-center justify-content-center justify-content-md-between py-3 mb-4 border-bottom">
             <div class="col-md-3 mb-2 mb-md-0">
-                <!-- {{! <a href="/" class="d-inline-flex link-body-emphasis text-decoration-none">
-                    <div>
-                        Website Name
-                    </div>
-                </a> }} -->
                 <div class="h3 p-3">
                     Website Name
                 </div>
@@ -33,7 +28,7 @@
 
             <ul class="nav col-12 col-md-auto mb-2 justify-content-center mb-md-0">
                 <li><a href="#" class="nav-link px-2 link-secondary">Home</a></li>
-                <li><a href="/createstory" class="nav-link px-2">Participate in the Storytelling</a></li>
+                <li><a href="/createstory" class="nav-link px-2">Participate</a></li>
                 <li><a href="#" class="nav-link px-2">Archive</a></li>
                 <li><a href="#" class="nav-link px-2">FAQs</a></li>
                 <li><a href="#" class="nav-link px-2">About</a></li>
@@ -48,20 +43,14 @@
                 <button type="button" class="btn btn-primary me-3">Sign-up</button>
             </div>
             <div class="dropdown text-end mx-3">
-                <a href="#" class="d-block link-body-emphasis text-decoration-none dropdown-toggle"
-                    data-bs-toggle="dropdown" aria-expanded="false">
-                    <i class="fa-solid fa-user"></i>
-                </a>
-                <ul class="dropdown-menu text-small" style="">
-                    <li><a class="dropdown-item" href="/createstory">New project...</a></li>
-                    <li><a class="dropdown-item" href="#">Settings</a></li>
-                    <li><a class="dropdown-item" href="#">Profile</a></li>
-                    <li>
-                        <hr class="dropdown-divider">
-                    </li>
-                    <li><a class="dropdown-item" href="#">Sign out</a></li>
-                </ul>
-            </div> 
+    <a href="#" class="d-block link-body-emphasis text-decoration-none dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false" title="Visit Profile">
+        <i class="fa-solid fa-user"></i>
+    </a>
+    <ul class="dropdown-menu text-small">
+        <li><a class="dropdown-item" href="/users" id="visit-profile-text">Visit Profile Page</a></li>
+    </ul>
+</div>
+
         </header>
 
         {{{body}}}

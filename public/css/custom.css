@@ -14,7 +14,10 @@
 
 
 
-
+#visit-profile-text:hover {
+  color: red;
+  text-decoration: underline;
+}
 
 
 
