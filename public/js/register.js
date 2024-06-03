@@ -9,16 +9,20 @@ document.addEventListener('DOMContentLoaded', async () => {
         const password = document.getElementById('inputNewPassword').value.trim();
 
         try {
-            const response = await fetch('/api/users', {
+            const response = await fetch('/api/users/register', {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',
                 },
-                body: JSON.stringify({ username, email, password }),
+                body: JSON.stringify({ 
+                    username, 
+                    email,
+                    password,
+                })
             });
 
             if (response.ok) {
-                document.location.replace('/homepage');
+                window.location.href = '/homepage';
             } else {
                 alert('Failed to create new account');
             }
