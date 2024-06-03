@@ -13,7 +13,7 @@ User.hasMany(Segment, {
 
 Segment.belongsTo(User, {
     onDelete: 'CASCADE',
-    foreignKey: 'user_id'
+    foreignKey: 'created_by'
 });
 
 // End User Associations

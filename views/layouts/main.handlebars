@@ -46,23 +46,20 @@
 
             <div class="col-md-4 text-end">
                 {{#if loggedIn}}
-                <button type="button" id="logoutBtn" class="btn btn-outline-primary me-4">Logout</button>
+                <a href='/logout' type="button" id="logout" class="btn btn-outline-primary me-2">Logout</a>
                 {{else}}
                 <a href="/login" class="btn btn-outline-primary me-2">Login</a>
-                {{!-- have this button below take you to the registerUser.handlebars --}}
                 <button type="button" class="btn btn-primary me-3">Sign-up</button>
                 {{/if}}
             </div>
-
-            <div class="dropdown text-end mx-5">
-                <a href="#" class="d-block link-body-emphasis text-decoration-none dropdown-toggle"
-                    data-bs-toggle="dropdown" aria-expanded="false" title="Visit Profile">
-                    <i class="fa-solid fa-user"></i>
-                </a>
-                <ul class="dropdown-menu text-small">
-                    <li><a class="dropdown-item" href="/users" id="visit-profile-text">Visit Profile Page</a></li>
-                </ul>
-            </div>
+            <div class="dropdown text-end mx-3">
+    <a href="#" class="d-block link-body-emphasis text-decoration-none dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false" title="Visit Profile">
+        <i class="fa-solid fa-user"></i>
+    </a>
+    <ul class="dropdown-menu text-small">
+        <li><a class="dropdown-item" href="/users" id="visit-profile-text">Visit Profile Page</a></li>
+    </ul>
+</div>
 
         </header>
 
