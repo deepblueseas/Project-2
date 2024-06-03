@@ -4,8 +4,8 @@ const bcrypt = require('bcrypt');
 
 class User extends Model {
     checkPassword(loginPw) {
-        bcrypt.hash(loginPw, 10);
-        console.log(bcrypt.hashSync(loginPw, 10));
+        // bcrypt.hash(loginPw, 10);
+        // console.log(bcrypt.hashSync(loginPw, 10));
         return bcrypt.compareSync(loginPw, this.password);
       }
 }
@@ -28,7 +28,8 @@ User.init(
 
         user_bio: {
             type: DataTypes.TEXT('long'),
-            allowNull: false
+            allowNull: true //bio is optional now bc of the 
+            //option to create with Quill
         },
 
         email: {
