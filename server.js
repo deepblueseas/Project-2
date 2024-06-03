@@ -1,13 +1,16 @@
+// I rearranged a little bit when I was going through some CWRU examples 
+// just to make sure nothing was missing
+// I dont think the arrangement for consts matters it was just for my visualization
+
 const path = require('path');
 const express = require('express');
 const session = require('express-session');
-const exphbs = require('express-handlebars');
-const Handlebars = require('handlebars');
-const routes = require('./controllers');
-const helpers = require('./utils/helpers');
-
+const exphbs = require('express-handlebars'); //why is this not yellow?
 const SequelizeStore = require('connect-session-sequelize')(session.Store);
+
+const routes = require('./controllers');
 const sequelize = require('./config/connection');
+const helpers = require('./utils/helpers');
 
 
 const app = express();
@@ -38,14 +41,6 @@ const hbs = exphbs.create({
   }
 });
 
-Handlebars.registerHelper('randomPrompt', async () => {
-  return await getRandomPrompt();
-});
-
-Handlebars.registerHelper('randomGenre', async () => {
-  return await getRandomGenre();
-});
-
 app.engine('handlebars', hbs.engine);
 app.set('view engine', 'handlebars');
 
@@ -53,11 +48,8 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 app.use(express.static(path.join(__dirname, 'public')));
 
-app.use(express.json());
-app.use(express.urlencoded({ extended: true }));
-app.use(express.static(path.join(__dirname, 'public')));
 
-//added this to make sure custom css runs
+// added this to make sure custom css runs, kept bumping into a strict MIME issue early on
 app.get('/public/css/custom.css', (req, res) => {
   const filePath = path.join(__dirname, 'public', 'css', 'custom.css');
   res.sendFile(filePath);

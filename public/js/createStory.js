@@ -31,7 +31,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
 const submitAdventure = document.getElementById('submit-adventure');
 const adventureContent = quill.root.innerHTML;
-fetch('/api/storyRoutes', {
+fetch('/api/createStory', {
     method: 'POST',
     headers: {
         'Content-Type': 'application/json'

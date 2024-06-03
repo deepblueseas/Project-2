@@ -1,6 +1,5 @@
 const router = require('express').Router();
-const User = require('../../models/user');
-const withAuth = require('../../utils/auth');
+const { User } = require('../../models');
 
 router.post('/', async (req, res) => {
     try {
@@ -62,32 +61,34 @@ router.post('/logout', (req, res) => {
     }
 });
 
+
+
 //connect user info to their profile page
-router.get('/users', withAuth, async (req, res) => {
-    if (!req.session.loggedIn) {
-        res.redirect('/login');
-        return;
-    }
+// router.get('/users', withAuth, async (req, res) => {
+//     if (!req.session.loggedIn) {
+//         res.redirect('/login');
+//         return;
+//     }
 
-    try {
-        const userData = await User.findByPk(req.session.user_id, {
-            attributes: {exclude: ['password']},
-        });
+//     try {
+//         const userData = await User.findByPk(req.session.user_id, {
+//             attributes: {exclude: ['password']},
+//         });
 
-        if (!userData) {
-            res.status(404).json({ message: 'User data not found' });
-            return;
-        }
+//         if (!userData) {
+//             res.status(404).json({ message: 'User data not found' });
+//             return;
+//         }
 
-        const user = userData.get({plain:true})
+//         const user = userData.get({plain:true})
 
-        res.render('users', {
-            user,
-            loggedIn: req.session.loggedIn
-        });
-    } catch (err) {
-        res.status(500).json(err);
-    }
-});
+//         res.render('users', {
+//             user,
+//             loggedIn: req.session.loggedIn
+//         });
+//     } catch (err) {
+//         res.status(500).json(err);
+//     }
+// });
 
 module.exports = router

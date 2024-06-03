@@ -27,3 +27,14 @@ const loginFormHandler = async (event) => {
 };
 
 loginForm.addEventListener('submit', loginFormHandler);
+
+const createAccountButton = document.querySelector('#createAccountButton');
+
+// Function to handle clicking the create new account button
+const createAccountHandler = () => {
+    // Redirect the user to the registerUser page
+    window.location.href = '/registerUser';
+};
+
+// Add event listener to the create new account button
+createAccountButton.addEventListener('click', createAccountHandler);
