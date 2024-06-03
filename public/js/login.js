@@ -27,3 +27,10 @@ const loginFormHandler = async (event) => {
 };
 
 loginForm.addEventListener('submit', loginFormHandler);
+
+document.getElementById('createAccountButton').addEventListener('click', function(event) {
+  event.preventDefault(); 
+  
+
+  window.location.href = '/registerUser';
+});

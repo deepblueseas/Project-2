@@ -1,4 +1,14 @@
 {
+  "name": "project-2",
+  "version": "1.0.0",
+  "description": "Collaborative Story-telling App",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js",
+    "seed": "node seeds/index.js"
+  },
+  "author": "John, Garrett, Dom, Tess",
+  "license": "MIT",
   "dependencies": {
     "bcrypt": "^5.1.1",
     "bootstrap": "^5.3.3",
