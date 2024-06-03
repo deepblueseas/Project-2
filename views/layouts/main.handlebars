@@ -29,40 +29,43 @@
 
 <body>
     <div class="justify-content-center">
-        <header
-            class="d-flex flex-wrap align-items-center justify-content-center justify-content-md-between py-3 mb-4 border-bottom">
-            <div class="col-md-4 mb-2 mb-md-0 text-start">
+        <header class="d-flex flex-wrap align-items-center justify-content-center py-3 mb-4 border-bottom">
+            <div class="col-md-4 mb-md-0 text-start">
                 <div class="h3 p-3">
                     Project-2
                 </div>
             </div>
 
-{{!-- the class items here dont actually change where the uls are placed, need to look into a better way to center the uls --}}
-            <ul class="nav col-12 col-md-auto mb-2 mb-md-0" id="center-nav-items">
-                {{!-- homepage works when clicked!!! YEAH BABES! --}}
-                <li><a href="/homepage" class="nav-link px-2">Home</a></li>
-                <li><a href="/createStory" class="nav-link px-2">Tell a Story</a></li>
-            </ul>
+            {{!-- the class items here dont actually change where the uls are placed, need to look into a better way to
+            center the uls --}}
+            <div class="col-md-4 d-flex justify-content-center">
+                <ul class="nav">
+                    {{!-- homepage works when clicked!!! YEAH BABES! --}}
+                    <li><a href="/homepage" class="nav-link px-2">Home</a></li>
+                    <li><a href="/createStory" class="nav-link px-2">Tell a Story</a></li>
+                </ul>
+            </div>
 
-            <div class="col-md-4 text-end">
+            <div class="col-md-4 d-flex justify-content-end align-items-center">
                 {{#if loggedIn}}
                 <button type="button" id="logoutBtn" class="btn btn-outline-primary me-4">Logout</button>
                 {{else}}
                 <a href="/login" class="btn btn-outline-primary me-2">Login</a>
                 {{!-- have this button below take you to the registerUser.handlebars --}}
-                <button type="button" class="btn btn-primary me-3">Sign-up</button>
+                <a href="/registerUser" class="btn btn-primary me-3">Sign-up</a>
                 {{/if}}
+
+                <div class="dropdown text-end mx-5">
+                    <a href="#" class="d-block link-body-emphasis text-decoration-none dropdown-toggle"
+                        data-bs-toggle="dropdown" aria-expanded="false" title="Visit Profile">
+                        <i class="fa-solid fa-user"></i>
+                    </a>
+                    <ul class="dropdown-menu text-small">
+                        <li><a class="dropdown-item" href="/users" id="visit-profile-text">Visit Profile Page</a></li>
+                    </ul>
+                </div>
             </div>
 
-            <div class="dropdown text-end mx-5">
-                <a href="#" class="d-block link-body-emphasis text-decoration-none dropdown-toggle"
-                    data-bs-toggle="dropdown" aria-expanded="false" title="Visit Profile">
-                    <i class="fa-solid fa-user"></i>
-                </a>
-                <ul class="dropdown-menu text-small">
-                    <li><a class="dropdown-item" href="/users" id="visit-profile-text">Visit Profile Page</a></li>
-                </ul>
-            </div>
 
         </header>
 
@@ -72,7 +75,7 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
         crossorigin="anonymous"></script>
-        <script src="/js/logout.js"></script>
+    <script src="/js/logout.js"></script>
 </body>
 
 </html>
