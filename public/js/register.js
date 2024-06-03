@@ -1,15 +1,16 @@
 document.addEventListener('DOMContentLoaded', async () => {
     const registerUserForm = document.getElementById('registerForm');
+    const createAccount = document.getElementById('createAccountButton');
 
-    registerUserForm.addEventListener('submit', async (event) => {
-        event.preventDefault();
+    // createAccount.addEventListener('click', (event) => {
+    //     document.location.replace('/registerUsers');
 
         const username = document.getElementById('inputNewUsername').value.trim();
         const email = document.getElementById('inputNewEmail').value.trim();
         const password = document.getElementById('inputNewPassword').value.trim();
 
         try {
-            const response = await fetch('/api/users/register', {
+            const response = fetch('/api/registerUsers/', {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',
@@ -22,7 +23,7 @@ document.addEventListener('DOMContentLoaded', async () => {
             });
 
             if (response.ok) {
-                window.location.href = '/homepage';
+                document.location.replace('/homepage');
             } else {
                 alert('Failed to create new account');
             }
@@ -31,4 +32,3 @@ document.addEventListener('DOMContentLoaded', async () => {
             alert('An error occurred while creating your new account')
         }
     });
-});
