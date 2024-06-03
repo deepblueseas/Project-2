@@ -1,0 +1,35 @@
+<div class="container">
+  <div class="row">
+    <div class="col-md-12">
+      <h1>{{story.story_title}}</h1>
+    </div>
+  </div>
+    <div class="col-md-12">
+      <div class="card mb-3">
+        <div class="card-body">
+            {{#each story.segments}}
+        {{!-- <h5 class="card-title">Segment {{position}}</h5>
+        <h6 class="card-subtitle mb-2 text-body-secondary">Created By: {{user.username}}</h6> --}}
+          <p class="segment-text" text-indent="0px">{{segment_content}}</p>
+          {{/each}}
+        </div>
+      </div>
+    </div>
+  <div class="container">
+  <div class="row">
+    <div class="col-md-12">
+      <h3>Story Breakdown</h3>
+    </div>
+  </div>
+  {{#each story.segments}}
+    <div class="col-md-12">
+      <div class="card mb-3">
+        <div class="card-body">
+        <h5 class="card-title">Segment {{position}}</h5>
+        <h6 class="card-subtitle mb-2 text-body-secondary">Created By: {{user.username}}</h6>
+          <p class="segment-text">{{segment_content}}</p>
+        </div>
+      </div>
+    </div>
+  {{/each}}
+</div>
