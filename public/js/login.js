@@ -31,5 +31,6 @@ loginForm.addEventListener('submit', loginFormHandler);
 
 
 createAccountButton.addEventListener('click', function(event) {
+  event.preventDefault();
   document.location.replace ('/registerUser');
 });

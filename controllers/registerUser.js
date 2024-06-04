@@ -11,7 +11,7 @@ router.get('/', async (req, res) => {
 
 router.post('/', async (req, res) => {
     try {
-        const userData = await User.create({
+        const dbUserData = await User.create({
             username: req.body.username,
             email: req.body.email,
             password: req.body.password,
@@ -20,7 +20,7 @@ router.post('/', async (req, res) => {
         req.session.save(() => {
             req.session.loggedIn = true;
       
-            res.status(200).json(UserData);
+            res.status(200).json(dbUserData);
           });
         } catch (err) {
           console.log(err);
@@ -43,7 +43,7 @@ router.post('/', async (req, res) => {
             return;
           }
       
-          const validPassword = await UserData.checkPassword(req.body.password);
+          const validPassword = await dbUserData.checkPassword(req.body.password);
       
           if (!validPassword) {
             res
