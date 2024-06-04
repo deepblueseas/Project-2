@@ -50,7 +50,7 @@ router.get('/homepage', withAuth, async (req, res) => {
       stories,
       loggedIn: req.session.loggedIn,
     });
-    console.log(stories)
+    console.log(stories[5])
   } catch (err) {
     console.log(err);
     res.status(500).json(err);
@@ -70,11 +70,11 @@ router.get('/story/:id', withAuth, async (req, res) => {
             },
             {
               model: Prompt,
-              attributes: ['id', 'prompt_title']
+              // attributes: ['id', 'prompt_title']
             },
             {
               model: Genre,
-              attributes: ['id', 'genre_title']
+              // attributes: ['id', 'genre_title']
             }
           ]
         }
@@ -88,7 +88,7 @@ router.get('/story/:id', withAuth, async (req, res) => {
 
     const story = storyData.get({ plain: true });
 
-    console.log(story)
+    console.log(story.user)
 
     res.render('viewStory', {
       story,

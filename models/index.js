@@ -32,15 +32,15 @@ Segment.belongsTo(Story, {
 // Segment Associations
 Segment.hasOne(Prompt, {
     onDelete: 'CASCADE',
-    foreignKey: 'prompt_id'
+    foreignKey: 'id'
 });
 
 Segment.hasOne(Genre, {
     onDelete: 'CASCADE',
-    foreignKey: 'genre_id'
+    foreignKey: 'id'
 });
 
-Prompt.hasMany(Segment, {
+Prompt.belongsTo(Segment, {
     onDelete: 'CASCADE',
     foreignKey: 'prompt_id'
 });
