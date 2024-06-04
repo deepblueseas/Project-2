@@ -1,4 +1,5 @@
 const loginForm = document.getElementById('loginForm');
+const createAccountButton = document.getElementById('createAccountButton');
 
 const loginFormHandler = async (event) => {
   event.preventDefault();
@@ -28,9 +29,8 @@ const loginFormHandler = async (event) => {
 
 loginForm.addEventListener('submit', loginFormHandler);
 
-document.getElementById('createAccountButton').addEventListener('click', function(event) {
-  event.preventDefault(); 
-  
 
-  window.location.href = '/registerUser';
+createAccountButton.addEventListener('click', function(event) {
+  event.preventDefault();
+  document.location.replace ('/registerUser');
 });

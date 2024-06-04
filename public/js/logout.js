@@ -1,4 +1,9 @@
-document.getElementById('logoutBtn').addEventListener('click', function (){
+document.addEventListener('DOMContentLoaded', () => {
+  const logoutBtn = document.getElementById('logoutBtn');
+
+
+if (logoutBtn) {
+logoutBtn.addEventListener('click', function (){
   fetch('/api/users/logout', {
     method: 'POST'
   }).then(response => {
@@ -11,8 +16,8 @@ document.getElementById('logoutBtn').addEventListener('click', function (){
     console.error('Error:', error);
   });
 });
-
-
+}
+});
 
  
   
