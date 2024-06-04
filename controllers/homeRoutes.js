@@ -2,6 +2,7 @@ const express = require('express');
 const router = require('express').Router();
 const { Genre, Prompt, Segment, Story, User } = require('../models');
 const withAuth = require('../utils/auth');
+const { getRandomPrompt, getRandomGenre } = require('../utils/helpers')
 
 router.get('/', withAuth, async (req, res) => {
   try {
@@ -66,6 +67,14 @@ router.get('/story/:id', withAuth, async (req, res) => {
             {
               model: User,
               attributes: ['id', 'username']
+            },
+            {
+              model: Prompt,
+              attributes: ['id', 'prompt_title']
+            },
+            {
+              model: Genre,
+              attributes: ['id', 'genre_title']
             }
           ]
         }
@@ -112,7 +121,29 @@ router.get('/gameMode', withAuth, async (req, res) => {
 });
 
 router.get('/createStory', withAuth, async (req, res) => {
- res.render('adventureModeNew')
+ try{ const gCount = await Genre.count();
+      const gOffset = Math.floor(Math.random() * gCount);
+      const randomGenre = await Genre.findOne({ offset: gOffset });
+
+      const pCount = await Prompt.count();
+      const pOffset = Math.floor(Math.random() * pCount);
+      const randomPrompt = await Prompt.findOne({ offset: pOffset });
+        
+
+      const genre = randomGenre.get({ plain: true });
+      const prompt = randomPrompt.get({ plain: true });
+
+      console.log(genre)
+      console.log(prompt)
+
+      res.render('adventureModeNew', {
+        genre,
+        prompt,
+        loggedIn: req.session.loggedIn,
+      })
+    } catch (err) {
+  console.error(err);
+ }
 })
 
 router.post('/submitNewStory', async (req, res) => {
@@ -135,18 +166,5 @@ router.post('/submitNewStory', async (req, res) => {
     console.error(err);
     res.status(500).json({ message: 'Failed to create new story'})
   }
-  // try {
-  //     const { story_title, segment_content } = req.body;
-  //     const newStory = await Story.create({ story_title });
-  //     const newSegment = await Segment.create({
-  //         segment_content,
-  //         storyId: newStory.id, 
-  //     });
-
-  //     res.json({ success: true, story: newStory, segment: newSegment });
-  // } catch (err) {
-  //     console.log(err);
-  //     res.status(500).json({ success: false, error: err.message });
-  // }
 });
 module.exports = router;

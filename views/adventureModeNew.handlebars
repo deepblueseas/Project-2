@@ -13,11 +13,15 @@
 <div class="container justify-content-center align-items-center w-50">
   <div class="card text-center w-50" id="prompt-container">
     <div class="card-header" id="prompt-title">
-        Here's your prompt:
+        Here's your Genre and Prompt:
     </div>
     <div class="card-body">
-      <h5 class="card-title">{{ randomGenre }}</h5>
-      <p class="card-text">{{ randomPrompt }}</p>
+      <h5 class="card-title">Genre:
+        <h5 class="card-title" id="randomPrompt">{{ genre.genre_title }}</h5>
+      </h5>
+      <h5 class="card-title">Prompt:
+      <h5 class="card-title" id="randomGenre">{{ prompt.prompt_title }}</h5>
+      </h5>
       <a href="#" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModalOpen" id="open-modal">Go somewhere</a>
     </div>
     <div class="card-footer text-body-secondary">
@@ -38,6 +42,8 @@
           <p>Story Title: 
             <input type="text" id="storyTitle"></input>
           </p>
+          <input type="hidden" id="genreId" value="{{genre.id}}"></input>
+          <input type="hidden" id="promptId" value="{{prompt.id}}"></input>
         </div>
           <!-- Quill CSS link -->
           <link href="https://cdn.jsdelivr.net/npm/quill@2.0.2/dist/quill.snow.css" rel="stylesheet" />

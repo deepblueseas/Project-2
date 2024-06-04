@@ -2,6 +2,8 @@
 // specifically to save their Quill input to our storySegment db
 const submitAdventure = document.getElementById('submit-adventure');
 const storyTitle = document.getElementById('storyTitle')
+const genreId = document.getElementById('genreId');
+const promptId = document.getElementById('promptId')
 
 console.log('test1')
 console.log(submitAdventure)
@@ -14,7 +16,13 @@ fetch('/submitNewStory', {
     headers: {
         'Content-Type': 'application/json'
     },
-    body: JSON.stringify({story_title: storyTitle.value, segment_content: adventureContent})
+    body: JSON.stringify(
+      { story_title: storyTitle.value, 
+        segment_content: adventureContent,
+        prompt_id: promptId.value,
+        genre_id: genreId.value,
+      }
+    )
 })
 
  .then(response => {
