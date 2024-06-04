@@ -1,6 +1,10 @@
 <div class="container">
   <div class="row">
     <div class="col-md-12">
+      <div class="col-md-12 d-flex justify-content-center">
+        <button type="button" class="btn btn-success mx-auto p-2" data-bs-toggle="modal" and data-bs-target="#exampleModalOpen">Add to this story?</button>
+      </div>
+
       <h1>{{story.story_title}}</h1>
     </div>
   </div>
@@ -8,8 +12,6 @@
       <div class="card mb-3">
         <div class="card-body">
             {{#each story.segments}}
-        {{!-- <h5 class="card-title">Segment {{position}}</h5>
-        <h6 class="card-subtitle mb-2 text-body-secondary">Created By: {{user.username}}</h6> --}}
           <p class="segment-text" text-indent="0px">{{segment_content}}</p>
           {{/each}}
         </div>
@@ -33,3 +35,49 @@
     </div>
   {{/each}}
 </div>
+
+<div class="modal fade" id="exampleModalOpen" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Go wild literary fiends!</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <div>
+          <p>Story Title: 
+            <input type="text" id="storyTitle"></input>
+          </p>
+        </div>
+          <!-- Quill CSS link -->
+          <link href="https://cdn.jsdelivr.net/npm/quill@2.0.2/dist/quill.snow.css" rel="stylesheet" />
+          <!-- Quill editor container -->
+        <div id="editor">
+          <p>Begin writing here!</p>
+          <p>Feel free to <strong>jazz it up</strong> as you wish</p>
+          <p><br /></p>
+        </div>
+      </div>
+      <div class="modal-footer">
+          <button class="btn btn-primary" id="submit-segment">Submit</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/quill@2.0.2/dist/quill.js"></script>
+  
+  <!-- Initialize Quill editor -->
+<script>
+  const quill = new Quill('#editor', {
+      modules: {
+          history: {
+              delay: 1000,
+              maxStack: 500,
+              maxLength: 1500,
+              userOnly: true,
+          }
+      },
+    theme: 'snow'
+  });
+</script>
