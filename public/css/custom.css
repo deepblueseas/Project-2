@@ -32,8 +32,7 @@
 
 
 
-/* createStory.handlebars custom css */
-
+/* createStory.handlebars */
 .playgame-padding {
   padding-bottom: 50px
 }
@@ -43,20 +42,19 @@
   border-radius: 20px; 
 }
 
-/* #indie-flower-regular {
-  font-family: "Indie Flower", cursive;
-  font-weight: 400;
-  font-style: normal;
-} */
 
-/* this needs to be changed to an id */
-#courgette-regular {
+/* adventureModeNew.handlebars */
+.courgette-regular {
   font-family: "Courgette", cursive;
   font-weight: 400;
   font-style: normal;
 }
 
-/* css for the newadventure prompt */
+.center-card{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
 
 #prompt-container {
   margin: auto;
@@ -66,4 +64,21 @@
   font-weight: bold !important;
   font-style: italic;
   font-size: larger;
+}
+
+/* dark mode! */
+
+.dark-mode {
+  background-color: grey;
+  color: white;
+}
+
+.dark-mode .fa-solid.fa-user {
+  color: white;
+}
+
+@media screen and (max-width: 768px) {
+  .card {
+    width: 100%;
+  }
 }

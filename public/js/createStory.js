@@ -13,7 +13,9 @@ fetch('/api/createStory', {
         'Content-Type': 'application/json'
     },
     body: JSON.stringify({content: adventureContent})
+    
 })
+
  .then(response => {
     if (response.ok) {
       console.log('Content saved successfully');
@@ -25,5 +27,7 @@ fetch('/api/createStory', {
     console.error('Error:', error);
   });
 };
+
+
 
 submitAdventure.addEventListener('click', createNewStory)
