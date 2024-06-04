@@ -14,9 +14,7 @@ fetch('/submitNewStory', {
     headers: {
         'Content-Type': 'application/json'
     },
-
-    body: JSON.stringify({story_title: JSON.stringify(storyTitle), segment_content: adventureContent})
-
+    body: JSON.stringify({story_title: storyTitle.value, segment_content: adventureContent})
 })
 
  .then(response => {
