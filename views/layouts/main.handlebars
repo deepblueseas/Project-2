@@ -3,9 +3,6 @@
 <!DOCTYPE html>
 <html lang="en">
 
-<head>
-    <meta charset="UTF-8" />
-    <title>Story-Roulette</title>
 
     <head>
         <meta charset="UTF-8">
@@ -32,7 +29,7 @@
         <header class="d-flex flex-wrap align-items-center justify-content-center py-3 mb-4 border-bottom">
             <div class="col-md-4 mb-md-0 text-start">
                 <div class="h3 p-3">
-                    Story-Roulette
+                    Story-Roulette <i class="fa-solid fa-dice"></i>
                 </div>
             </div>
 
@@ -57,16 +54,16 @@
                 <a href="/registerUser" class="btn btn-primary me-3">Sign-up</a>
                 {{/if}}
 
-                <div class="dropdown text-end mx-5">
+                <div class="dropdown text-end mx-5" style="margin-top: 15px;">
                     <a href="#" class="d-block link-body-emphasis text-decoration-none dropdown-toggle"
                         data-bs-toggle="dropdown" aria-expanded="false" title="Visit Profile">
                         <i class="fa-solid fa-user"></i>
                     </a>
-                    <ul class="dropdown-menu text-small">
-                        <li><a class="dropdown-item" href="/users" id="visit-profile-text">Visit Profile Page</a></li>
-                    </ul>
+                    <div class="dropdown-menu text-small">
+                        <a class="dropdown-item" href="/userProfile" id="visit-profile-text">Visit Profile Page</a>
+                        <button class="dropdown-item" id="darkModeToggle" onclick="toggleDarkMode()">Go Dark Mode <i class="fa-solid fa-glasses"></i></button>
+                    </div>
                 </div>
-            </div>
 
 
         </header>
@@ -78,6 +75,7 @@
         integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
         crossorigin="anonymous"></script>
     <script src="/js/logout.js"></script>
+    <script src="/js/navbar.js"></script>
 </body>
 
 </html>

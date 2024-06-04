@@ -14,8 +14,11 @@ fetch('/submitNewStory', {
     headers: {
         'Content-Type': 'application/json'
     },
+
     body: JSON.stringify({story_title: JSON.stringify(storyTitle), segment_content: adventureContent})
+
 })
+
  .then(response => {
     if (response.ok) {
       console.log('Content saved successfully');
@@ -27,5 +30,7 @@ fetch('/submitNewStory', {
     console.error('Error:', error);
   });
 };
+
+
 
 submitAdventure.addEventListener('click', createNewStory)

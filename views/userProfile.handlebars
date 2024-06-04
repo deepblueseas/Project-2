@@ -1,4 +1,4 @@
-
+<link href="https://cdn.jsdelivr.net/npm/quill@2.0.2/dist/quill.snow.css" rel="stylesheet" />
     <div class="container mt-5">
         <div class="d-flex justify-content-center mb-4">
             <div class="card" style="width: 18rem;">
@@ -7,11 +7,12 @@
                 <div class="card-body">
                     <h5 class="card-title">{{user.username}}</h5>
                     <p class="card-text">{{user.user_bio}}</p>
-                </div>
+                
                 <div id="editor">
                     <p>Hello!</p>
                     <p>feel free to add your <strong>bio</strong> here!</p>
                     <p><br></p>
+                </div>
                 </div>
                 <div class="d-flex justify-content-center">
                     <button id="save-button">Save Text</button>
@@ -19,7 +20,6 @@
             </div>
         </div>
 
-      
 
         <div class="d-flex justify-content-center">
             <div class="card pt-4" style="width: 18rem;">
@@ -28,7 +28,6 @@
                     <h6 class="card-subtitle mb-2 text-body-secondary">Card subtitle</h6>
                     <p class="card-text">Check out the stories I've partaken in:</p>
                     <ul class="list-group list-group-flush">
-                      {{!-- turn these into buttons --}}
                         <li class="list-group-item">An item</li>
                         <li class="list-group-item">A second item</li>
                         <li class="list-group-item">A third item</li>
@@ -41,5 +40,16 @@
             </div>
         </div>
     </div>
+
+    <!-- script stays outside -->
+<!-- Include the Quill library -->
+<script src="https://cdn.jsdelivr.net/npm/quill@2.0.2/dist/quill.js"></script>
+
+<!-- Initialize Quill editor -->
+<script>
+  const quill = new Quill('#editor', {
+    theme: 'snow'
+  });
+</script>
 
 
