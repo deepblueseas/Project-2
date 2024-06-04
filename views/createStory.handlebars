@@ -17,12 +17,12 @@ to do:
 <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link href="https://fonts.googleapis.com/css2?family=Courgette&display=swap" rel="stylesheet" />
-
-<h1>Create a story - Collaboratively!</h1>
-
+<div class="text-center">
+    <h1 class="justify-content-center">Create a story - Collaboratively!</h1>
+</div>
 <div class="container justify-content-center">
     <div class="row align-items-end p-5 g-5">
-        <div class="col-md-6">
+        {{!-- <div class="col-md-6">
             <div class="card playing-card">
                 <div class="card-body">
                     <h2 class="card-text text-center playgame-padding" id="courgette-regular">Rapid Fire Round</h2>
@@ -58,8 +58,8 @@ to do:
                     </div>
                 </div>
             </div>
-        </div>
-        <div class="col-md-6">
+        </div> --}}
+        <div class="col-md-6 justify-content-center">
             <div class="card playing-card">
                 <div class="card-body">
                     <h2 class="card-text text-center playgame-padding" id="courgette-regular">Adventure Mode</h2>
@@ -82,9 +82,8 @@ to do:
                                     </div>
                                     <div class="modal-body">
                                         <div class="d-flex justify-content-center align-items-center w-100 p-5 g-5">
-                                            <button type="button" class="btn btn-success mx-2" id="adventure-mode-startnew">Start New</button>
-                                            <button type="button" class="btn btn-primary mx-2" id="adventure-mode-ongoing">Join Ongoing
-                                                Story</button>
+                                            <a href="/createStory" type="button" class="btn btn-success mx-2" id="adventure-mode-startnew">Start New</a>
+                                            <a href="/" type="button" class="btn btn-primary mx-2" id="adventure-mode-ongoing">Join Ongoing Story</a>
                                         </div>
                                     </div>
                                     <div class="modal-footer">
@@ -101,3 +100,4 @@ to do:
 </div>
 
 <script src="/js/createStory.js"></script>
+<script src="/js/newAdventure.js"></script>
