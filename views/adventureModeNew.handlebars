@@ -34,6 +34,11 @@
                         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                     </div>
                     <div class="modal-body">
+                      <div>
+                        <p>Story Title: 
+                          <input type="text"></input>
+                        </p>
+                      </div>
                         <!-- Quill CSS link -->
                         <link href="https://cdn.jsdelivr.net/npm/quill@2.0.2/dist/quill.snow.css" rel="stylesheet" />
                         <!-- Quill editor container -->
@@ -43,9 +48,9 @@
                             <p><br /></p>
                         </div>
                     </div>
+                    </form>
                     <div class="modal-footer">
-                        <button type="button" class="btn btn-primary">Save for later</button>
-                        <button type="button" class="btn btn-primary">Submit</button>
+                        <button class="btn btn-primary" id="submit-adventure">Submit</button>
                     </div>
                 </div>
             </div>
@@ -70,18 +75,6 @@
               theme: 'snow'
             });
           </script>
-
-          
-          <!-- script stays outside -->
-          <!-- Include the Quill library -->
-          <script src="https://cdn.jsdelivr.net/npm/quill@2.0.2/dist/quill.js"></script>
-          
-          <!-- Initialize Quill editor -->
-          <script>
-            const quill = new Quill('#editor', {
-              theme: 'snow'
-            });
-          </script>
    
+    <script src="/js/createStory.js"></script>
     
-    <script src="public/js/createStory.js"></script>
