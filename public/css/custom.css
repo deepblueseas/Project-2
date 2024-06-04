@@ -125,8 +125,7 @@
   border-width: 3px;
 }
 
-.card-body p,
-.card-body h5 {
+.card-body p {
   color: black;
 }
 
