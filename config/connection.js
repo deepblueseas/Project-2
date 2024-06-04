@@ -13,3 +13,5 @@ if (process.env.DB_URL) {
     },
   );
 }
+
+module.exports = sequelize;
