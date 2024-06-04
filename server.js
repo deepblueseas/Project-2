@@ -1,7 +1,3 @@
-// I rearranged a little bit when I was going through some CWRU examples 
-// just to make sure nothing was missing
-// I dont think the arrangement for consts matters it was just for my visualization
-
 const path = require('path');
 const express = require('express');
 const session = require('express-session');
