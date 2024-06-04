@@ -36,3 +36,48 @@
   {{/each}}
 </div>
 
+<div class="modal fade" id="exampleModalOpen" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Go wild literary fiends!</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <div>
+          <p>Story Title: 
+            <input type="text" id="storyTitle"></input>
+          </p>
+        </div>
+          <!-- Quill CSS link -->
+          <link href="https://cdn.jsdelivr.net/npm/quill@2.0.2/dist/quill.snow.css" rel="stylesheet" />
+          <!-- Quill editor container -->
+        <div id="editor">
+          <p>Begin writing here!</p>
+          <p>Feel free to <strong>jazz it up</strong> as you wish</p>
+          <p><br /></p>
+        </div>
+      </div>
+      <div class="modal-footer">
+          <button class="btn btn-primary" id="submit-segment">Submit</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/quill@2.0.2/dist/quill.js"></script>
+  
+  <!-- Initialize Quill editor -->
+<script>
+  const quill = new Quill('#editor', {
+      modules: {
+          history: {
+              delay: 1000,
+              maxStack: 500,
+              maxLength: 1500,
+              userOnly: true,
+          }
+      },
+    theme: 'snow'
+  });
+</script>
