@@ -1,63 +1,51 @@
-{{!-- this page shows two story style option and modals allow the user to choose jumping into an ongoing story or start
-a new
-see createStory js for the event listeners connecting the modal buttons to the appropriate handlebars pages
-currently there is no image at the top and i would like to add more css styling to make it more interactive and fun
-another idea is to show examples of each at the bottom
-
-to do:
-1. add images
-2. more css styling/modal styling
-3. examples at the bottom
-4. aria and keyboard nav for accessibility--}}
-
 <link rel="preconnect" href="https://fonts.googleapis.com" />
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
 <link href="https://fonts.googleapis.com/css2?family=Courgette&display=swap" rel="stylesheet" />
 
 <div class="text-center">
-    <h1 class="justify-content-center">Create a story - collaboratively!</h1>
+  <h1 class="justify-content-center">Create a story - collaboratively!</h1>
 </div>
 <div class="container d-flex justify-content-center align-items-center">
-    <div class="row align-items-end p-5 g-5 w-100 justify-content-center">
-        <div class="col-md-6 d-flex justify-content-center">
-            <div class="playing-card">
-                <div class="card-body">
-                    <h2 class="card-text text-center pt-3 courgette-regular">Adventure Mode<br><i class="fa-solid fa-dragon mt-4 mb-3"></i></h2>
-                    <p class="text-center playgame-padding mt-0 mb-0">Here be dragons. <br> And werewolves, and who knows that
-                        else! Only you know. <br> In this mode you will have a much longer word limit and no time
-                        limit to complete prompts.</p>
-                    <div class="d-flex justify-content-center pb-3">
-                        <button type="button" class="btn btn-success mx-auto p-2" style="width: 150px"
-                            data-bs-toggle="modal" data-bs-target="#exampleModalAdventure"
-                            id="adventure-mode">Play</button>
-                        <div class="modal fade" id="exampleModalAdventure" tabindex="-1"
-                            aria-labelledby="exampleModalLabel" aria-hidden="true">
-                            <div class="modal-dialog">
-                                <div class="modal-content">
-                                    <div class="modal-header">
-                                        <h1 class="modal-title fs-5 text-center w-100" id="exampleModalLabel">Would
-                                            you like to start a new story <br> or jump into an ongoing tale?</h1>
-                                        <button type="button" class="btn-close" data-bs-dismiss="modal"
-                                            aria-label="Close"></button>
-                                    </div>
-                                    <div class="modal-body">
-                                        <div class="d-flex justify-content-center align-items-center w-100 p-5 g-5">
-                                            <a href="/createStory" type="button" class="btn btn-success mx-2"
-                                                id="adventure-mode-startnew">Start New</a>
-                                            <a href="/" type="button" class="btn btn-primary mx-2"
-                                                id="adventure-mode-ongoing">Join Ongoing Story</a>
-                                        </div>
-                                    </div>
-                                    <div class="modal-footer">
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
+  <div class="row align-items-end p-5 g-5 w-100 justify-content-center">
+    <div class="col-md-6 d-flex justify-content-center">
+      <div class="playing-card">
+        <div class="card-body">
+          <h2 class="card-text text-center pt-3 courgette-regular">Adventure Mode<br><i
+              class="fa-solid fa-dragon mt-4 mb-3"></i></h2>
+          <p class="text-center playgame-padding mt-0 mb-0">Here be dragons. <br> And werewolves, and who
+            knows that
+            else! Only you know. <br> In this mode you will have a much longer word limit and no time
+            limit to complete prompts.</p>
+          <div class="d-flex justify-content-center pb-3">
+            <button type="button" class="btn btn-success mx-auto p-2" style="width: 150px" data-bs-toggle="modal"
+              data-bs-target="#exampleModalAdventure" id="adventure-mode">Play</button>
+            <div class="modal fade" id="exampleModalAdventure" tabindex="-1" aria-labelledby="exampleModalLabel"
+              aria-hidden="true">
+              <div class="modal-dialog">
+                <div class="modal-content">
+                  <div class="modal-header">
+                    <h1 class="modal-title fs-5 text-center w-100" id="exampleModalLabel">Would
+                      you like to start a new story <br> or jump into an ongoing tale?</h1>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                  </div>
+                  <div class="modal-body">
+                    <div class="d-flex justify-content-center align-items-center w-100 p-5 g-5">
+                      <a href="/createStory" type="button" class="btn btn-success mx-2"
+                        id="adventure-mode-startnew">Start New</a>
+                      <a href="/" type="button" class="btn btn-primary mx-2" id="adventure-mode-ongoing">Join Ongoing
+                        Story</a>
                     </div>
+                  </div>
+                  <div class="modal-footer">
+                  </div>
                 </div>
+              </div>
             </div>
+          </div>
         </div>
+      </div>
     </div>
+  </div>
 </div>
 </div>
 

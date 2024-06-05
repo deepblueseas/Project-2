@@ -3,7 +3,6 @@ const seedPrompt = require('./promptData');
 const seedSegment = require('./segmentData');
 const seedStory = require('./storyData');
 const seedUser = require('./userData');
-const seedStorySegment = require('./storySegmentData');
 
 const sequelize = require('../config/connection');
 
@@ -30,10 +29,6 @@ const seedAll = async () => {
   console.log('\n----- SEGMENTS -----\n');
   await seedSegment();
   console.log('\n----- SEGMENTS SEEDED -----\n');
-
-  console.log('\n----- STORY SEGMENTS -----\n');
-  await seedStorySegment();
-  console.log('\n----- STORY SEGMENTS SEEDED -----\n');
 
   process.exit(0);
 };

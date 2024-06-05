@@ -2,7 +2,6 @@ const Genre = require('./genre');
 const Prompt = require('./prompt');
 const Segment = require('./segment');
 const Story = require('./story');
-const StorySegment = require('./storySegment');
 const User = require('./user');
 
 // User Associations
@@ -30,14 +29,14 @@ Segment.belongsTo(Story, {
 // End Story Associations
 
 // Segment Associations
-Segment.hasOne(Prompt, {
+Segment.belongsTo(Prompt, {
     onDelete: 'CASCADE',
-    foreignKey: 'id'
+    foreignKey: 'prompt_id'
 });
 
-Segment.hasOne(Genre, {
+Segment.belongsTo(Genre, {
     onDelete: 'CASCADE',
-    foreignKey: 'id'
+    foreignKey: 'genre_id'
 });
 
 Prompt.belongsTo(Segment, {
@@ -51,4 +50,4 @@ Genre.hasMany(Segment, {
 });
 // End Segment Associations
 
-module.exports = { Genre, Prompt, Segment, Story, User, StorySegment}
+module.exports = { Genre, Prompt, Segment, Story, User}

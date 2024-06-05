@@ -4,7 +4,6 @@ document.addEventListener('DOMContentLoaded', async () => {
 
     if (registerUserForm && createAccount) {
         createAccount.addEventListener('click', async (event) => {
-            console.log('click')
             event.preventDefault();
 
             const username = document.getElementById('inputNewUsername').value.trim();
@@ -17,18 +16,17 @@ document.addEventListener('DOMContentLoaded', async () => {
                     headers: {
                         'Content-Type': 'application/json',
                     },
-                    body: JSON.stringify({ 
-                        username, 
+                    body: JSON.stringify({
+                        username,
                         email,
                         password,
                     })
 
-                    
                 });
 
                 if (response.ok) {
                     console.log('you did it')
-                    document.location.replace ('/homepage');
+                    document.location.replace('/homepage');
                 }
 
             } catch (error) {
