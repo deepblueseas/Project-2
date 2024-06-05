@@ -68,17 +68,64 @@
 
 /* dark mode! */
 
-.dark-mode {
-  background-color: grey;
+/* .dark-mode {
+  background-color: #333333;
   color: white;
 }
 
 .dark-mode .fa-solid.fa-user {
   color: white;
 }
+.dark-mode .logout-btn {
+  color: white;
+}
+
+.dark-mode .nav-link {
+  color: white;
+}
+
+.dark-mode .card-body {
+  background-color: #333333;
+}
+
+.dark-mode .card {
+  border-color: white;
+  border-width: 3px;
+}
+
+.dark-mode .card-body p,
+.dark-mode .card-body h5,
+.dark-mode .card-body h6,
+.dark-mode h6 #userName {
+  color: white;
+}
+
+.dark-mode .card-link {
+  color: white;
+  text-decoration: underline;
+} */
+
 
 @media screen and (max-width: 768px) {
   .card {
     width: 100%;
   }
 }
+
+.card-body a {
+  text-decoration: none;
+}
+
+.card-body .card-link {
+  text-decoration: underline;
+}
+
+.card {
+  border-color: #000;
+  border-width: 3px;
+}
+
+.card-body p {
+  color: black;
+}
+
