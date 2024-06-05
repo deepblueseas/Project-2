@@ -28,9 +28,9 @@
           aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
           <span class="navbar-toggler-icon"></span>
         </button>
-
         <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
           <ul class="navbar-nav">
+            {{#if loggedIn}}
             <li class="nav-item">
               <a class="nav-link" href="/homepage">Home</a>
             </li>
@@ -40,7 +40,6 @@
             <li class="nav-item">
               <a class="nav-link" href="/userProfile">View Profile</a>
             </li>
-            {{#if loggedIn}}
             <li class="nav-item">
               <button type="button" id="logoutBtn" class="btn btn-outline-primary me-2">Logout</button>
             </li>
