@@ -1,14 +1,12 @@
 const router = require('express').Router();
 const User = require('../models/user');
 
-
-
-
+// show register user form
 router.get('/', async (req, res) => {
   res.render('registerUser');
 });
 
-
+//create new user
 router.post('/', async (req, res) => {
   try {
     const dbUserData = await User.create({
@@ -19,6 +17,7 @@ router.post('/', async (req, res) => {
 
     req.session.save(() => {
       req.session.loggedIn = true;
+      req.session.user_id = dbUserData.id;
 
       res.status(200).json(dbUserData);
     });
@@ -28,6 +27,7 @@ router.post('/', async (req, res) => {
   }
 });
 
+//log in with the user id etc
 router.post('/login', async (req, res) => {
   try {
     const dbUserData = await User.findOne({

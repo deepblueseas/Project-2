@@ -39,7 +39,7 @@ router.get('/homepage', withAuth, async (req, res) => {
     const storyData = await Story.findAll({
       include: [{
         model: Segment,
-        include: [{ model: User, }]
+        include: [{ model: User}]
       }]
     });
 
