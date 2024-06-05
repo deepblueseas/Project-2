@@ -12,7 +12,7 @@
       <div class="card mb-3">
         <div class="card-body">
             {{#each story.segments}}
-          <p class="segment-text" text-indent="0px">{{segment_content}}</p>
+          <p class="segment-text" text-indent="0px">{{{segment_content}}}</p>
           {{/each}}
         </div>
       </div>
@@ -27,9 +27,11 @@
     <div class="col-md-12">
       <div class="card mb-3">
         <div class="card-body">
-        <h5 class="card-title">Segment {{position}}</h5>
-        <h6 class="card-subtitle mb-2 text-body-secondary">Created By: {{user.username}}</h6>
-          <p class="segment-text">{{segment_content}}</p>
+        <h5 class="card-text">Segment {{position}}</h5>
+          <h6 class="card-title text-body-secondary">Genre: {{genre.genre_title}}</h6>
+          <h6 class="card-title text-body-secondary">Prompt: {{prompt.prompt_title}}</h6>
+        <h6 class="card-title mb-2 text-body-secondary">Created By: {{user.username}}</h6>
+          <p class="segment-text">{{{segment_content}}}</p>
         </div>
       </div>
     </div>
