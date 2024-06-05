@@ -70,11 +70,11 @@ router.get('/story/:id', withAuth, async (req, res) => {
             },
             {
               model: Prompt,
-              // attributes: ['id', 'prompt_title']
+              attributes: ['id', 'prompt_title']
             },
             {
               model: Genre,
-              // attributes: ['id', 'genre_title']
+              attributes: ['id', 'genre_title']
             }
           ]
         }
@@ -88,7 +88,7 @@ router.get('/story/:id', withAuth, async (req, res) => {
 
     const story = storyData.get({ plain: true });
 
-    console.log(story.user)
+    console.log(story)
 
     res.render('viewStory', {
       story,
@@ -146,7 +146,7 @@ router.get('/createStory', withAuth, async (req, res) => {
  }
 })
 
-router.post('/submitNewStory', async (req, res) => {
+router.post('/submitNewStory', withAuth, async (req, res) => {
   try {
     const newStory = await Story.create({
       story_title: req.body.story_title,
@@ -160,6 +160,7 @@ router.post('/submitNewStory', async (req, res) => {
         genre_id: req.body.genre_id,
         segment_content: req.body.segment_content,
       });
+      console.log(req.session.user_id)
 
     res.status(201).json(newStory);
   } catch (err) {
