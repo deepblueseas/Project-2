@@ -5,12 +5,13 @@ const storyTitle = document.getElementById('storyTitle')
 const genreId = document.getElementById('genreId');
 const promptId = document.getElementById('promptId')
 
-console.log('test1')
-console.log(submitAdventure)
+
 const createNewStory = (event) =>{
-  console.log('test2')
   event.preventDefault();
 const adventureContent = quill.root.innerHTML;
+
+
+
 fetch('/submitNewStory', {
     method: 'POST',
     headers: {
@@ -28,6 +29,8 @@ fetch('/submitNewStory', {
  .then(response => {
     if (response.ok) {
       console.log('Content saved successfully');
+      event.preventDefault();
+      document.location.replace ('/homepage');
     } else {
       console.error('Failed to save content');
     }
@@ -39,4 +42,4 @@ fetch('/submitNewStory', {
 
 
 
-submitAdventure.addEventListener('click', createNewStory)
+submitAdventure.addEventListener('click', createNewStory);
