@@ -1,8 +1,7 @@
 const express = require('express');
-const router = require('express').Router();
+const router = express.Router();
 const { Genre, Prompt, Segment, Story, User } = require('../models');
 const withAuth = require('../utils/auth');
-const { getRandomPrompt, getRandomGenre } = require('../utils/helpers')
 
 router.get('/', withAuth, async (req, res) => {
   try {
@@ -12,7 +11,6 @@ router.get('/', withAuth, async (req, res) => {
     });
 
     const users = userData.map((project) => project.get({ plain: true }));
-    console.log(req.session)
     res.render('homepage', {
       users,
       loggedIn: req.session.loggedIn,
@@ -25,7 +23,6 @@ router.get('/', withAuth, async (req, res) => {
 });
 
 router.get('/login', (req, res) => {
-  // If a session exists, redirect the request to the homepage
   if (req.session.loggedIn) {
     res.redirect('/homepage');
     return;
@@ -50,7 +47,7 @@ router.get('/homepage', withAuth, async (req, res) => {
       stories,
       loggedIn: req.session.loggedIn,
     });
-    console.log(stories[5])
+
   } catch (err) {
     console.log(err);
     res.status(500).json(err);
@@ -84,11 +81,9 @@ router.get('/story/:id', withAuth, async (req, res) => {
     if (!storyData) {
       res.status(404).json({ message: 'Story not found' });
       return;
-    }
+    };
 
     const story = storyData.get({ plain: true });
-
-    console.log(story)
 
     res.render('viewStory', {
       story,
@@ -114,6 +109,7 @@ router.get('/gameMode', withAuth, async (req, res) => {
           stories,
           loggedIn: req.session.loggedIn,
       });
+
   } catch (err) {
       console.log(err);
       res.status(500).json(err);
@@ -129,21 +125,19 @@ router.get('/createStory', withAuth, async (req, res) => {
       const pOffset = Math.floor(Math.random() * pCount);
       const randomPrompt = await Prompt.findOne({ offset: pOffset });
         
-
       const genre = randomGenre.get({ plain: true });
       const prompt = randomPrompt.get({ plain: true });
-
-      console.log(genre)
-      console.log(prompt)
 
       res.render('adventureModeNew', {
         genre,
         prompt,
         loggedIn: req.session.loggedIn,
       })
-    } catch (err) {
-  console.error(err);
- }
+
+  } catch (err) {
+        console.error(err);
+        res.status(500).json(err);
+  }
 })
 
 router.post('/submitNewStory', withAuth, async (req, res) => {
@@ -160,12 +154,13 @@ router.post('/submitNewStory', withAuth, async (req, res) => {
         genre_id: req.body.genre_id,
         segment_content: req.body.segment_content,
       });
-      console.log(req.session.user_id)
 
     res.status(201).json(newStory);
+
   } catch (err) {
     console.error(err);
     res.status(500).json({ message: 'Failed to create new story'})
   }
 });
+
 module.exports = router;

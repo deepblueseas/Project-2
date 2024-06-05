@@ -2,7 +2,6 @@ const Genre = require('./genre');
 const Prompt = require('./prompt');
 const Segment = require('./segment');
 const Story = require('./story');
-const StorySegment = require('./storySegment');
 const User = require('./user');
 
 // User Associations
@@ -51,4 +50,4 @@ Genre.hasMany(Segment, {
 });
 // End Segment Associations
 
-module.exports = { Genre, Prompt, Segment, Story, User, StorySegment}
+module.exports = { Genre, Prompt, Segment, Story, User}

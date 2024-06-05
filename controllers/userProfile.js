@@ -15,7 +15,6 @@ router.get('/', withAuth, async (req, res) => {
         }
 
         const user = dbUserData.get({ plain: true });
-        console.log(req.session);
         res.render('userProfile', {
             user,
             loggedIn: req.session.loggedIn,

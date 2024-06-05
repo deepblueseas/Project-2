@@ -8,7 +8,6 @@ if (inputElement) {
   console.log("Input element not found.");
 }
 
-
 const submitUserBio = async (event) => {
   try {
     const userBio = userBioEditor.innerHTML;

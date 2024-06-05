@@ -8,7 +8,6 @@ const routes = require('./controllers');
 const sequelize = require('./config/connection');
 const helpers = require('./utils/helpers');
 
-
 const app = express();
 const PORT = process.env.PORT || 3001;
 
@@ -44,8 +43,6 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 app.use(express.static(path.join(__dirname, 'public')));
 
-
-// added this to make sure custom css runs, kept bumping into a strict MIME issue early on
 app.get('/public/css/custom.css', (req, res) => {
   const filePath = path.join(__dirname, 'public', 'css', 'custom.css');
   res.sendFile(filePath);

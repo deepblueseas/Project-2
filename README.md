@@ -9,13 +9,13 @@ To install this repo, simply copy the repo and use git clone in your command lin
 
 ## Usage 
 Start by signing up by clicking "Create New Account."
-![Login Page](newAccount.png)
+![Login Page](/public/images/newAccount.png)
 Fill in your information, and click "Create Account."
-![Create Account](infoFilledIn.png)
+![Create Account](/public/images/infoFilledIn.png)
 You will then be logged into the homepage where you can read currently uploaded stories or you can click "Tell a Story" to start your own story.
-![homePage](homePage.png)
+![homePage](/public/images/homePage.png)
 When you're ready to start writing press play and follow the prompts!
-![adventurePage](adventure.png)
+![adventurePage](/public/images/adventure.png)
 
 ## License 
 MIT 
