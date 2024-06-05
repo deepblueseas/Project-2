@@ -1,80 +1,74 @@
-{{!-- Main Handlebars that appears on every page. Ours consists of the Nav Bar --}}
-
 <!DOCTYPE html>
 <html lang="en">
 
-
-    <head>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>Story-Roulette</title>
-        {{!-- Connect Bootstrap CSS --}}
-        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
-            integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH"
-            crossorigin="anonymous" />
-        {{!-- Connect Custom CSS --}}
-        <link href="/public/css/custom.css" type="text/css" rel="stylesheet" />
-        {{!-- Connect Custom Fonts --}}
-        {{!-- Doublecheck these links --}}
-        <link rel="preconnect" href="https://fonts.googleapis.com">
-        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-        <link href="https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap" rel="stylesheet" />
-        <script src="https://kit.fontawesome.com/b52e995b7a.js" crossorigin="anonymous"></script>
-    </head>
-
-    {{!-- Nav Bar Below --}}
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Story-Roulette</title>
+    <!-- Connect Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous" />
+    <!-- Connect Custom CSS -->
+    <link href="/public/css/custom.css" type="text/css" rel="stylesheet" />
+    <!-- Connect Custom Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap" rel="stylesheet" />
+    <script src="https://kit.fontawesome.com/b52e995b7a.js" crossorigin="anonymous"></script>
+</head>
 
 <body>
     <div class="justify-content-center">
-        <header class="d-flex flex-wrap align-items-center justify-content-center py-3 mb-4 border-bottom">
-            <div class="col-md-4 mb-md-0 text-start">
-                <div class="h3 p-3">
-                    <div class="home">
-                    <a href="/homepage">Story-Roulette <i class="fa-solid fa-dice"></i></a>
-                    </div>
+
+        <!-- Nav Bar Below -->
+        <nav class="navbar navbar-expand-lg navbar-light bg-light border-bottom mb-4">
+            <div class="container-fluid">
+                <a class="navbar-brand" href="#">
+                    Story-Roulette <i class="fa-solid fa-dice"></i>
+                </a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+                    aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+
+                <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
+                    <ul class="navbar-nav">
+                        <li class="nav-item">
+                            <a class="nav-link" href="/homepage">Home</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="/gameMode">Tell a Story</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="/userProfile">View Profile</a>
+                        </li>
+                        {{#if loggedIn}}
+                        <li class="nav-item">
+                            <button type="button" id="logoutBtn" class="btn btn-outline-primary me-2">Logout</button>
+                        </li>
+                        {{else}}
+                        <li class="nav-item">
+                            <a href="/login" class="btn btn-outline-primary me-2">Login</a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="/registerUser" class="btn btn-primary me-2">Sign-up</a>
+                        </li>
+                        {{/if}}
+                    </ul>
                 </div>
             </div>
-
-            {{!-- the class items here dont actually change where the uls are placed, need to look into a better way to
-            center the uls --}}
-            <div class="col-md-4 d-flex justify-content-center">
-                <ul class="nav">
-                    {{!-- homepage works when clicked!!! YEAH BABES! --}}
-                    <li><a href="/homepage" class="nav-link px-2">Home</a></li>
-                    <li><a href="/gameMode" class="nav-link px-2">Tell a Story</a></li>
-                </ul>
-            </div>
-
-            <div class="col-md-4 d-flex justify-content-end align-items-center">
-                {{#if loggedIn}}
-
-                <button type="button" id="logoutBtn" class="btn btn-outline-primary me-4">Logout</button>
-
-                {{else}}
-                <a href="/login" class="btn btn-outline-primary me-2">Login</a>
-                {{!-- have this button below take you to the registerUser.handlebars --}}
-                <a href="/registerUser" class="btn btn-primary me-3">Sign-up</a>
-                {{/if}}
-
-                <div class="dropdown text-end mx-5" style="margin-top: 15px;">
-                    <a href="#" class="d-block link-body-emphasis text-decoration-none dropdown-toggle"
-                        data-bs-toggle="dropdown" aria-expanded="false" title="Visit Profile">
-                        <i class="fa-solid fa-user"></i>
-                    </a>
-                    <div class="dropdown-menu text-small">
-                        <a class="dropdown-item" href="/userProfile" id="visit-profile-text">Visit Profile Page</a>
-                        {{!-- <button class="dropdown-item" id="darkModeToggle" onclick="toggleDarkMode()">Go Dark Mode <i class="fa-solid fa-glasses"></i></button> --}}
-                    </div>
-                </div>
-
-
-        </header>
+        </nav>
 
         {{{body}}}
 
     </div>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
-        integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
+    <!-- Bootstrap JS, Popper.js, and dependencies -->
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js"
+        integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r"
+        crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.min.js"
+        integrity="sha384-0pUGZvbkm6XF6gxjEnlmuGrJXVbNuzT9qBBavbLwCsOGabYfZo0T0to5eqruptLy"
         crossorigin="anonymous"></script>
     <script src="/js/logout.js"></script>
     <script src="/js/navbar.js"></script>
