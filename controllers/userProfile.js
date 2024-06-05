@@ -59,6 +59,7 @@ router.get('/:id', withAuth, async (req, res) => {
 
         const user = dbUserData.get({plain: true});
         const isOwner = req.session.userId === parseInt(userId)
+        
         res.render('userProfile', {
             user,
             loggedIn: req.session.loggedIn,
