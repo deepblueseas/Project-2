@@ -1,28 +1,27 @@
-
 <link rel="preconnect" href="https://fonts.googleapis.com" />
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
 <link href="https://fonts.googleapis.com/css2?family=Courgette&display=swap" rel="stylesheet" />
 
 <h1 class="text-center b-5 mb-4" id="courgette-regular">Welcome to the Adventure Zone!</h1>
-<!-- fix this id so it is a class to be reused i am using it in multiple places -->
 <h4 class="text-center mb-4">You chose to start a new story</h4>
-<h6 class="text-center mb-5">Let's breakdown the gameplay again. <br> You will get a prompt containing a genre and a place and be able to write anything that comes to mind to fill out that prompt. <br>
-    When you hit submit, your contribution will be posted to the story thread and someone else will pick up from there!
+<h6 class="text-center mb-5">Let's breakdown the gameplay again. <br> You will get a prompt containing a genre and a
+  place and be able to write anything that comes to mind to fill out that prompt. <br>
+  When you hit submit, your contribution will be posted to the story thread and someone else will pick up from there!
 </h6>
 
 <div class="container justify-content-center align-items-center w-50">
   <div class="card text-center w-50" id="prompt-container">
-    <div class="card-header" id="prompt-title">
-        Here's your Genre and Prompt:
+    <div class="card-header mb-3" id="prompt-title">
+      Here's your Genre and Prompt:
     </div>
-    <div class="card-body">
+    <div class="card-body mb-3">
       <h5 class="card-title">Genre:
-        <h5 class="card-title" id="randomPrompt">{{ genre.genre_title }}</h5>
+        <h5 class="card-title mb-5" id="randomPrompt"><i>{{ genre.genre_title }}</i></h5>
       </h5>
       <h5 class="card-title">Prompt:
-      <h5 class="card-title" id="randomGenre">{{ prompt.prompt_title }}</h5>
+        <h5 class="card-title mb-5" id="randomGenre"><i>{{ prompt.prompt_title }}</i></h5>
       </h5>
-      <a href="#" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModalOpen" id="open-modal">Go somewhere</a>
+      <a href="#" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModalOpen" id="open-modal">Write a Story</a>
     </div>
     <div class="card-footer text-body-secondary">
       Happy Writing
@@ -39,44 +38,47 @@
       </div>
       <div class="modal-body">
         <div>
-          <p>Story Title: 
+          <p>Story Title:
             <input type="text" id="storyTitle"></input>
           </p>
           <input type="hidden" id="genreId" value="{{genre.id}}"></input>
           <input type="hidden" id="promptId" value="{{prompt.id}}"></input>
         </div>
-          <!-- Quill CSS link -->
-          <link href="https://cdn.jsdelivr.net/npm/quill@2.0.2/dist/quill.snow.css" rel="stylesheet" />
-          <!-- Quill editor container -->
+        <!-- Quill CSS link -->
+        <link href="https://cdn.jsdelivr.net/npm/quill@2.0.2/dist/quill.snow.css" rel="stylesheet" />
+        <!-- Quill editor container -->
         <div id="editor">
           <p>Begin writing here!</p>
-          <p>Feel free to <strong>jazz it up</strong> as you wish</p>
+          <p>Feel free to <strong>jazz it up</strong> <i>as you wish.</i><br>Nothing is <s>inconceivable</s><br><br><ins>Please note your work will only be saved on submit at the moment. Refreshing the page with restart the gameplay.</ins></p>
           <p><br /></p>
         </div>
       </div>
       <div class="modal-footer">
-          <button class="btn btn-primary" id="submit-adventure">Submit</button>
+        <button class="btn btn-primary" id="submit-adventure">Submit</button>
       </div>
     </div>
   </div>
 </div>
 
-  <!-- script stays outside -->
-  <!-- Include the Quill library -->
 <script src="https://cdn.jsdelivr.net/npm/quill@2.0.2/dist/quill.js"></script>
-  
-  <!-- Initialize Quill editor -->
 <script>
+  const toolbarOptions = [
+    ['bold', 'italic', 'underline', 'strike'],
+    ['blockquote', 'code-block'],
+    [{ 'header': 1 }, { 'header': 2 }],
+    [{ 'size': ['small', false, 'large', 'huge'] }],
+    [{ 'list': 'ordered' }, { 'list': 'bullet' }, { 'list': 'check' }],
+    [{ 'indent': '-1' }, { 'indent': '+1' }],
+    [{ 'direction': 'rtl' }],
+    [{ 'color': [] }, { 'background': [] }],
+    [{ 'align': [] }],
+    ['clean']
+  ];
   const quill = new Quill('#editor', {
-      modules: {
-          history: {
-              delay: 1000,
-              maxStack: 500,
-              maxLength: 1500,
-              userOnly: true,
-          }
-      },
-    theme: 'snow'
+    theme: 'snow',
+    modules: {
+      toolbar: toolbarOptions
+    }
   });
 </script>
 

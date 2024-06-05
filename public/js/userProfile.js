@@ -1,32 +1,34 @@
-document.addEventListener('DOMContentLoaded', (event) => {
-    const quill = new Quill('#editor', {
-        theme: 'snow'
+const savebtn = document.getElementById('save-bio-button');
+const userBioEditor = document.getElementById('bio-editor');
+const inputElement = document.querySelector('input[data-formula="e=mc^2"][data-link="https://quilljs.com"][data-video="Embed URL"]');
+
+if (inputElement) {
+  inputElement.remove();
+} else {
+  console.log("Input element not found.");
+}
+
+
+const submitUserBio = async (event) => {
+  try {
+    const userBio = userBioEditor.innerHTML;
+    const response = await fetch('/userProfile/submitUserBio', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify({ content: userBio })
     });
 
-    const savedContent = localStorage.getItem('quill-content');
-    if (savedContent) {
-        quill.root.innerHTML = savedContent;
+    if (response.ok) {
+      console.log('Content saved successfully');
+      window.location.reload();
+    } else {
+      console.error('Failed to save content');
     }
-    document.getElementById('save-button').addEventListener('click', function () {
-        const userContent = quill.root.innerHTML;
-        fetch('/api/userRoutes', {
-            method: 'POST',
-            headers: {
-                "Content-Type": "application/json",
-            },
-            body: JSON.stringify({ content: userContent })
-        })
-            .then(response => {
-                if (response.ok) {
-                    console.log('Content saved successfully');
-                } else {
-                    console.error('Failed to save content');
-                }
-            })
-            .catch(error => {
-                console.error('Error:', error);
-            });
-        localStorage.setItem('quill-content', userContent);
-        console.log('Content saved:', userContent);
-    });
-});
+  } catch (error) {
+    console.error('Error:', error);
+  }
+};
+
+savebtn.addEventListener('click', submitUserBio);

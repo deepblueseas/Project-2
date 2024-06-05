@@ -1,57 +1,48 @@
 <link href="https://cdn.jsdelivr.net/npm/quill@2.0.2/dist/quill.snow.css" rel="stylesheet" />
-    <div class="container mt-5">
-        <div class="d-flex justify-content-center mb-4">
-            <div class="card" style="width: 18rem;">
+<div class="container mt-5">
+    <div class="d-flex justify-content-center mb-4">
+        <div class="card" style="width: 30rem;">
             <div class="card-body">
-                {{!-- <img src="{{user.image_url}}" class="card-img-top" alt="User Image"> --}}
                 <div class="card-body">
-                    <h5 class="card-title">{{user.username}}</h5>
-                    <p class="card-text">{{user.user_bio}}</p>
-                
-                <div id="editor">
-                    <p>Hello!</p>
-                    <p>feel free to add your <strong>bio</strong> here!</p>
-                    <p><br></p>
-                </div>
-                </div>
-                <div class="d-flex justify-content-center">
-                    <button id="save-button">Save Text</button>
-                </div>
-            </div>
-        </div>
+                    <h5 class="card-title"><i class="fa fa-user-secret xl" aria-hidden="true"></i> {{user.username}}
+                    </h5>
+                    <p class="card-text">{{{user.user_bio}}}</p>
+                    <div id="bio-editor">
+                        <p>Hello!</p>
+                        <p>use this to edit <strong>dynamically</strong> <i>edit your bio!</i></p>
+                        <p><br></p>
+                    </div>
+                    <div class="d-flex justify-content-center">
+                        <button class="btn btn-primary" id="save-bio-button">Save Text</button>
+                    </div>
 
-
-        <div class="d-flex justify-content-center">
-            <div class="card pt-4" style="width: 18rem;">
-                <div class="card-body">
-                    <h5 class="card-title">{{user.username}}'s Stories</h5>
-                    <h6 class="card-subtitle mb-2 text-body-secondary">Card subtitle</h6>
-                    <p class="card-text">Check out the stories I've partaken in:</p>
-                    <ul class="list-group list-group-flush">
-                        <li class="list-group-item">An item</li>
-                        <li class="list-group-item">A second item</li>
-                        <li class="list-group-item">A third item</li>
-                    </ul>
-                </div>
-                <div class="card-body">
-                    <a href="#" class="card-link">Card link</a>
-                    <a href="#" class="card-link">Another link</a>
                 </div>
             </div>
         </div>
     </div>
+</div>
 
-    <!-- script stays outside -->
-<!-- Include the Quill library -->
+{{!-- Quill --}}
 <script src="https://cdn.jsdelivr.net/npm/quill@2.0.2/dist/quill.js"></script>
-
-<!-- Initialize Quill editor -->
 <script>
-  const quill = new Quill('#editor', {
-    theme: 'snow'
-  });
+    const toolbarOptions = [
+        ['bold', 'italic', 'underline', 'strike'],
+        ['blockquote', 'code-block'],
+        [{ 'header': 1 }, { 'header': 2 }],
+        [{ 'size': ['small', false, 'large', 'huge'] }],
+        [{ 'list': 'ordered' }, { 'list': 'bullet' }, { 'list': 'check' }],
+        [{ 'indent': '-1' }, { 'indent': '+1' }],
+        [{ 'direction': 'rtl' }],
+        [{ 'color': [] }, { 'background': [] }],
+        [{ 'align': [] }],
+        ['clean']
+    ];
+    const quill = new Quill('#bio-editor', {
+        theme: 'snow',
+        modules: {
+            toolbar: toolbarOptions
+        }
+    });
 </script>
 
-
-
-
+<script src="/js/userProfile.js"></script>

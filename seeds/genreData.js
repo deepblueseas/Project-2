@@ -53,7 +53,7 @@ const genreData = [
         genre_title: 'Espionage'
     },
     {
-        genre_title: 'Psycological Thriller'
+        genre_title: 'Psychological Thriller'
     },  
 ];
 

@@ -4,12 +4,14 @@
       <div class="card-body">
         <h5 class="card-title">{{story_title}}</h5>
         {{#each segments}}
-          {{#if @first}}
-        <h6 class="card-subtitle mb-2 text-body-secondary">Created By: {{user.username}}</h6>
+        {{#if @first}}
+        <h6 class="card-subtitle mb-2 text-body-secondary">
+          <a href="/userProfile/{{user.id}}"> Created By: {{user.username}}</a>
+        </h6>
         <p class="card-text" id="output">{{{segment_content}}}</p>
         <a href="#" class="card-link">Card link</a>
         <a href="#" class="card-link">Another link</a>
-          {{/if}}
+        {{/if}}
         {{/each}}
       </div>
   </div>
